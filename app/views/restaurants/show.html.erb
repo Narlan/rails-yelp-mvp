@@ -1,0 +1,13 @@
+<h1><%= @restaurant.name %></h1>
+
+<p><%=@restaurant.name%> is a <%=@restaurant.category%> restaurant and is located in <%=@restaurant.address%></p>
+
+<ul>
+    <% @restaurant.reviews.each do |review| %>
+  <li>
+      <p> <%= review.content %> <%= review.rating %> </p>
+  </li>
+  <% end %>
+</ul>
+<%= link_to "Back to index", restaurants_path %>
+<%= link_to "Add a comment", new_restaurant_review_path(@restaurant.id) %>
